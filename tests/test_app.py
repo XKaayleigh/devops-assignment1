@@ -1,12 +1,5 @@
 import pytest
-from app import (
-    kg_to_grams,
-    grams_to_kg,
-    kg_to_pounds,
-    pounds_to_kg,
-    grams_to_pounds,
-    pounds_to_grams,
-)
+from app import kg_to_grams, grams_to_kg, kg_to_pounds, pounds_to_kg, grams_to_pounds, main_conversion_function
 
 # Example cases for conversion functions
 def test_kg_to_grams():
@@ -34,3 +27,5 @@ def test_grams_to_pounds():
     # if this test fails, the function grams_to_pounds is incorrect
     assert pytest.approx(grams_to_pounds(1000), rel=1e-5) == 2.20462
 
+def test_main_conversion_function_pounds_to_kg():
+    assert pytest.approx(main_conversion_function(2.20462, 'pounds', 'kg'), rel=1e-5) == 1
